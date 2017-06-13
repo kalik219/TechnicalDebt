@@ -31,5 +31,7 @@ public class Main {
         a.addNode(anticipated, spoofing);
 
         System.out.println(a.aggregate());
+
+        System.out.println("Hello world"); 
     }
 }
