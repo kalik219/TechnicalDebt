@@ -32,6 +32,5 @@ public class Main {
 
         System.out.println(a.aggregate());
 
-        System.out.println("Hello world"); 
     }
 }

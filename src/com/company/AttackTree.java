@@ -11,6 +11,7 @@ public class AttackTree {
     private int aggVal;
     private ATNode root;
     private int numLeaves;
+    private int maxDepth;
 
     /**
      * Should really find a way to generate the tree given some inputs
@@ -22,6 +23,7 @@ public class AttackTree {
         this.totalDepth = 1;
         this.root = root;
         this.numLeaves = 0;
+        this.maxDepth = 1;
     }
 
     /**
@@ -34,13 +36,17 @@ public class AttackTree {
         //Sets total depth of tree if necessary
         /**
          * TODO: Make sure that this handles other branches as well
+         * (okay but literally just make a max variable for the depth and
+         * if it exceeds it then increase the total depth otherwise
+         * do nothing
          */
-        if (subRoot.getAdj().isEmpty()) {
-            this.totalDepth++;
-        }
 
         //sets the depth of the new node (will happen either way)
         newNode.setDepth(subRoot.getDepth() + 1);
+        if (newNode.getDepth() > this.maxDepth) {
+            maxDepth = newNode.getDepth();
+            this.totalDepth = newNode.getDepth();
+        }
         subRoot.getAdj().add(newNode);
         this.size++;
     }
