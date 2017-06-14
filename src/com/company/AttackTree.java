@@ -18,6 +18,11 @@ public class AttackTree {
      * in a CSV list for example?
      */
 
+    /**
+     * Constructor for an attack tree
+     * @param root desired root of the new attack tree
+     * @return new Attack Tree
+     */
     public AttackTree(ATNode root) {
         this.size = 1;
         this.totalDepth = 1;
@@ -28,18 +33,11 @@ public class AttackTree {
 
     /**
      * Should be the only method in which we modify a node's adjacency
-     * list to properly keep track of size
-     * @param subRoot
-     * @param newNode
+     * list to properly keep track of size; will also keep track of depth
+     * @param subRoot node whose adjacency list the newNode will be appended to
+     * @param newNode node to be added to the Attack Tree
      */
     public void addNode(ATNode subRoot, ATNode newNode) {
-        //Sets total depth of tree if necessary
-        /**
-         * TODO: Make sure that this handles other branches as well
-         * (okay but literally just make a max variable for the depth and
-         * if it exceeds it then increase the total depth otherwise
-         * do nothing
-         */
 
         //sets the depth of the new node (will happen either way)
         newNode.setDepth(subRoot.getDepth() + 1);
@@ -52,7 +50,9 @@ public class AttackTree {
     }
 
     /**
-     * This will act as main DFS method
+     * Is the base DFS method
+     * NOTE: aggVal is only significant after this method is called
+     * @return aggregation value based on average weights of the leaves
      */
     public double aggregate() {
         if (null == root) {
@@ -77,6 +77,10 @@ public class AttackTree {
 
     }
 
+    /**
+     * Recursive helper method for aggregate()
+     * @param v node to be "exploring"
+     */
     public void aHelper(ATNode v) {
         v.setVisited(true);
         if (v.getAdj().isEmpty()) {
@@ -98,14 +102,26 @@ public class AttackTree {
         }
     }
 
+    /**
+     * Getter for size
+     * @return size of AttackTree
+     */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * Getter for total depth
+     * @return maximum depth of the attack tree
+     */
     public int getTotalDepth() {
         return this.totalDepth;
     }
 
+    /**
+     * Getter for numleaves
+     * @return number of leaves
+     */
     public int getNumLeaves() {
         return this.numLeaves;
     }
@@ -119,6 +135,10 @@ public class AttackTree {
         return this.aggVal;
     }
 
+    /**
+     * Getter for root
+     * @return root of the attack tree
+     */
     public ATNode getRoot() {
         return this.root;
     }
