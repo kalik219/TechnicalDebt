@@ -32,5 +32,10 @@ public class Main {
 
         System.out.println(a.aggregate());
 
+
+        System.out.println(a.getRoot().toString());
+
+        System.out.println(a.toString());
+
     }
 }

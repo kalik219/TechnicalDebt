@@ -12,6 +12,7 @@ public class AttackTree {
     private ATNode root;
     private int numLeaves;
     private int maxDepth;
+    private String ret; //for toString()
 
     /**
      * Should really find a way to generate the tree given some inputs
@@ -29,6 +30,7 @@ public class AttackTree {
         this.root = root;
         this.numLeaves = 0;
         this.maxDepth = 1;
+        this.ret = ""; //before calling toString()
     }
 
     /**
@@ -142,4 +144,50 @@ public class AttackTree {
     public ATNode getRoot() {
         return this.root;
     }
+
+
+    /**
+     * Uses DFS to show the tree in adjacency list format
+     * @return
+     */
+    public String toString() {
+        ret = "";
+        if (null == root) {
+            return ret;
+        }
+
+        if (root.getAdj() != null) {
+            if (root.getAdj().isEmpty()) {
+                ret += root.toString();
+                return ret;
+            } else {
+                //Go through all the nodes in the adjacency list of the root
+                ret += root.toString() + "\n";
+                for (int i = 0; i < root.getAdj().size(); i++) {
+                    toStringHelper(this.root.getAdj().get(i));
+                }
+            }
+        }
+
+        return ret;
+    }
+
+    public void toStringHelper(ATNode v) {
+
+        if (v.getAdj().isEmpty()) {
+            /**
+             * This is a leaf node --> calculate the weight of it
+             * For now, the aggregated value is just the average of the weights
+             * of the leaf nodes
+             */
+            ret += v.toString() + "\n";
+        }
+
+        //go through adjacency list
+        for (int i = 0; i < v.getAdj().size(); i++) {
+            ret += v.toString() + "\n";
+            toStringHelper(v.getAdj().get(i));
+        }
+    }
+
 }

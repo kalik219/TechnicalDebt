@@ -97,5 +97,31 @@ public class ATNode {
         return this.adj;
     }
 
+    /**
+     * Should return a string representing the single adj list
+     * of the node; potential problem is it printing
+     * recursively
+     * @return string with adjacency list of current node
+     */
+    public String toString() {
+        String ret = "";
+
+        ret += this.getAttackType() + ": {";
+        for (int i = 0; i < this.adj.size(); i++) {
+            if (i != this.adj.size() - 1) {
+                ret += this.adj.get(i).getAttackType() + ", ";
+            } else {
+                ret += this.adj.get(i).getAttackType() + " }";
+            }
+
+        }
+
+        if (this.getAdj().isEmpty()) {
+            ret += " }";
+        }
+
+        return ret;
+    }
+
 
 }
