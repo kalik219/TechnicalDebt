@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.ArrayList;
 /**
  * Created by TessaValentien on 6/12/17.
  */
@@ -13,6 +13,7 @@ public class AttackTree {
     private int numLeaves;
     private int maxDepth;
     private String ret; //for toString()
+    public ArrayList<ATNode> tracker;
 
     /**
      * Should really find a way to generate the tree given some inputs
@@ -31,6 +32,9 @@ public class AttackTree {
         this.numLeaves = 0;
         this.maxDepth = 1;
         this.ret = ""; //before calling toString()
+
+        tracker = new ArrayList();
+        tracker.add(root);
     }
 
     /**
@@ -49,6 +53,8 @@ public class AttackTree {
         }
         subRoot.getAdj().add(newNode);
         this.size++;
+
+        tracker.add(newNode);
     }
 
     /**
@@ -159,15 +165,25 @@ public class AttackTree {
         if (root.getAdj() != null) {
             if (root.getAdj().isEmpty()) {
                 ret += root.toString();
+                root.setPrinted(true);
                 return ret;
             } else {
                 //Go through all the nodes in the adjacency list of the root
                 ret += root.toString() + "\n";
+                root.setPrinted(true);
                 for (int i = 0; i < root.getAdj().size(); i++) {
+                    //ret += "Iteration: " + i + "\n";
                     toStringHelper(this.root.getAdj().get(i));
                 }
             }
         }
+        root.setPrinted(true);
+
+        //makes sure to reset the printed values so that it can successfully be printed again
+        for (int i = 0; i < tracker.size(); i++) {
+            tracker.get(i).setPrinted(false);
+        }
+
 
         return ret;
     }
@@ -180,12 +196,21 @@ public class AttackTree {
              * For now, the aggregated value is just the average of the weights
              * of the leaf nodes
              */
-            ret += v.toString() + "\n";
+
+            if (!v.isPrinted()) {
+                ret += v.toString() + "\n";
+                v.setPrinted(true);
+            }
+
         }
 
         //go through adjacency list
         for (int i = 0; i < v.getAdj().size(); i++) {
-            ret += v.toString() + "\n";
+            if (!v.isPrinted()) {
+                ret += v.toString() + "\n";
+                v.setPrinted(true);
+            }
+
             toStringHelper(v.getAdj().get(i));
         }
     }

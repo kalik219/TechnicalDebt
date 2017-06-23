@@ -33,8 +33,14 @@ public class Main {
         System.out.println(a.aggregate());
 
 
-        System.out.println(a.getRoot().toString());
+        //System.out.println(a.getRoot().toString());
 
+        System.out.println(a.toString());
+
+        //tries printing it again to see if the printed aspect works
+
+        System.out.println();
+        System.out.println("The second time: ");
         System.out.println(a.toString());
 
     }

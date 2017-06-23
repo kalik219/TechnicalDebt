@@ -11,6 +11,7 @@ public class ATNode {
     private int depth;
     private boolean visited;
     private String attackType;
+    private boolean printed;
 
 
     /**
@@ -95,6 +96,24 @@ public class ATNode {
      */
     public ArrayList<ATNode> getAdj() {
         return this.adj;
+    }
+
+
+    /**
+     * Determines whether is printed already to take care of
+     * recursion problems for the AttackTree toString()
+     * @return whether or not this node has been added to ret for toString()
+     */
+    public boolean isPrinted() {
+        return this.printed;
+    }
+
+    /**
+     * Allows for setting of printed
+     * @param toSet the new value for printed for this node
+     */
+    public void setPrinted(boolean toSet) {
+        this.printed = toSet;
     }
 
     /**
