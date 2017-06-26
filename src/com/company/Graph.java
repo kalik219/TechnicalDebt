@@ -17,19 +17,41 @@ public class Graph {
      * --> this may affect the severity --> not so much the weight or the depth
      *
      */
-     public Graph(GNode root) {
-
-
-
-    }
 
 
     public static void main (String args[]) {
+        MutableNetwork<QualityElement, Impact> sampleGraph = NetworkBuilder.directed()
+                .allowsParallelEdges(true)
+                .allowsSelfLoops(true)
+                .build();
 
-       // MutableNetwork<QualityElement, >
+        System.out.println("Allows self loops: " + sampleGraph.allowsSelfLoops());
+        System.out.println("Allows parallel edges: " + sampleGraph.allowsParallelEdges());
 
 
+        /**
+         * 1. Create all the Nodes
+         * 2. Create all the edges
+         * 3. Connect them somehow
+         */
 
+
+        //creates the nodes
+        QualityElement software = new QualityElement("Software");
+        QualityElement contentSpoofing = new QualityElement("Content Spoofing");
+        QualityElement idva = new QualityElement("Insufficient Verification of Data Authenticity");
+        QualityElement identitySpoofing = new QualityElement("Identity Spoofing");
+        QualityElement fsod = new QualityElement("Fake Source of Data");
+        QualityElement impAuthentication = new QualityElement("Improper Authentication");
+
+
+        //creates the edges
+        Impact a = new Impact("a", false, 5);
+        Impact b = new Impact("b", false, 4);
+        Impact c = new Impact("c", true, 6);
+        Impact d = new Impact("d", true, 2);
+        Impact e = new Impact("e", true, 9);
+        Impact f = new Impact("f", true, 8);
 
 
     }
