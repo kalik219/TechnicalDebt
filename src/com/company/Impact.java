@@ -30,4 +30,52 @@ public class Impact {
         this.weight = w;
     }
 
+    /**
+     * Getter for description
+     * @return description
+     */
+    public String getDesc() {
+        return this.description;
+    }
+
+    /**
+     * Getter for parity
+     * @return parity
+     */
+    public boolean getParity() {
+        return this.parity;
+    }
+
+    /**
+     * Getter for weight
+     * @return weight
+     */
+    public int getWeight() {
+        return this.weight;
+    }
+
+    /**
+     * Setter for description
+     * @param toSet what to set the description to
+     */
+    public void setDesc(String toSet) {
+        this.description = toSet;
+    }
+
+    /**
+     * Setter for parity
+     * @param toSet what to set the parity to
+     */
+    public void setParity(boolean toSet) {
+        this.parity = toSet;
+    }
+
+    /**
+     * Setter for weight
+     * @param toSet what to set the weight to
+     */
+    public void setWeight(int toSet) {
+        this.weight = toSet;
+    }
+
 }
