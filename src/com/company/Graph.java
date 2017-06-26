@@ -32,14 +32,16 @@ public class Graph {
         /**
          * 1. Create all the Nodes
          * 2. Create all the edges
-         * 3. Connect them somehow
+         * 3. Connect the nodes using the edges
+         * 4. Run tests on the graph to see if it's actually
+         * the graph you think you made
          */
 
 
         //creates the nodes
         QualityElement software = new QualityElement("Software");
         QualityElement contentSpoofing = new QualityElement("Content Spoofing");
-        QualityElement idva = new QualityElement("Insufficient Verification of Data Authenticity");
+        QualityElement ivda = new QualityElement("Insufficient Verification of Data Authenticity");
         QualityElement identitySpoofing = new QualityElement("Identity Spoofing");
         QualityElement fsod = new QualityElement("Fake Source of Data");
         QualityElement impAuthentication = new QualityElement("Improper Authentication");
@@ -52,6 +54,15 @@ public class Graph {
         Impact d = new Impact("d", true, 2);
         Impact e = new Impact("e", true, 9);
         Impact f = new Impact("f", true, 8);
+
+        //connects the nodes using the edges
+        sampleGraph.addEdge(identitySpoofing, software, a);
+        sampleGraph.addEdge(contentSpoofing, software, b);
+        sampleGraph.addEdge(ivda, contentSpoofing, c);
+        sampleGraph.addEdge(identitySpoofing, fsod, d);
+        sampleGraph.addEdge(impAuthentication, identitySpoofing, e);
+        sampleGraph.addEdge(fsod, impAuthentication, f);
+
 
 
     }
