@@ -25,11 +25,10 @@ public class Graph {
 
 
     public static void main (String args[]) {
-//        MutableGraph<Integer> graph = GraphBuilder.directed().build();
-//        graph.addNode(1);
-//        graph.putEdge(2, 3);  // also adds nodes 2 and 3 if not already present
 
-        System.out.println("HI");
+       // MutableNetwork<QualityElement, >
+
+
 
 
 
