@@ -61,8 +61,26 @@ public class Graph {
         sampleGraph.addEdge(ivda, contentSpoofing, c);
         sampleGraph.addEdge(identitySpoofing, fsod, d);
         sampleGraph.addEdge(impAuthentication, identitySpoofing, e);
+
+        /**
+         * Actual edge
+         */
         sampleGraph.addEdge(fsod, impAuthentication, f);
 
+
+        /**
+         * Switches the direction of the edge to see if hasCycle() method
+         * takes into consideration the direction (it does)
+         */
+        //sampleGraph.addEdge(impAuthentication, fsod, f);
+
+
+
+        //TODO: Write out the potential implications of it having a cycle
+        System.out.println("Does it have a cycle?: " + Graphs.hasCycle(sampleGraph));
+
+
+        //TODO: Write out what transitive closure would mean for a graph 
 
 
     }
