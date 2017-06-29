@@ -10,6 +10,7 @@ public class QualityElement {
      */
 
     private String factorType;
+    private int multiplicity;
 
     /**
      * Constructor for a QualityElement - keeps generic by taking
@@ -18,6 +19,16 @@ public class QualityElement {
      */
     public QualityElement(String fType) {
         this.factorType = fType;
+    }
+
+    /**
+     * Overloaded constructor
+     * @param fType factor type
+     * @param mult multiplicity
+     */
+    public QualityElement(String fType, int mult) {
+        this.factorType = fType;
+        this.multiplicity = mult;
     }
 
     /**
@@ -34,6 +45,22 @@ public class QualityElement {
      */
     public void setFactorType(String toSet) {
         this.factorType = toSet;
+    }
+
+    /**
+     * Getter for multiplicity
+     * @return multiplicity
+     */
+    public int getMultiplicity() {
+        return this.multiplicity;
+    }
+
+    /**
+     * Setter for multiplicity
+     * @param toSet what to set the multiplicity to
+     */
+    public void setMultiplicity(int toSet) {
+        this.multiplicity = toSet;
     }
 
     /**

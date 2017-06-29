@@ -80,7 +80,7 @@ public class Graph {
         System.out.println("Does it have a cycle?: " + Graphs.hasCycle(sampleGraph));
 
 
-        //TODO: Write out what transitive closure would mean for a graph 
+        //TODO: Write out what transitive closure would mean for a graph
 
 
     }
