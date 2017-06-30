@@ -83,6 +83,16 @@ public class Graph {
         //TODO: Write out what transitive closure would mean for a graph
 
 
+        /**
+         * The following code is only intended to figure out how the transitiveClosure() method
+         * provided by the graphs class works (it returns a directed graph and it does work)
+         */
+
+        System.out.println("This is the transitive closure graph: ");
+
+        System.out.println(Graphs.transitiveClosure(sampleGraph.asGraph()));
+
+
     }
 
 
