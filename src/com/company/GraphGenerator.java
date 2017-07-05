@@ -26,27 +26,90 @@ public class GraphGenerator {
 
     private Network<QualityElement, Impact> graph;
 
-    private HashMap<String, QualityElement> map;
+    private HashMap<String, QualityElement> nodes;
+
+    private HashMap<String, Impact> edges;
+
+    private int numNodes;
+
+    private int numEdges;
 
 
 
     public GraphGenerator(String fileName) {
 
-        graph = null;
+        /**
+         * Builds the graph so properties can be inserted
+         */
+        graph = NetworkBuilder.directed()
+                .allowsParallelEdges(true)
+                .allowsSelfLoops(true)
+                .build();
 
-        List<QualityElement> temp = new ArrayList<QualityElement>();
 
+        /**
+         * Instantiates the HashMaps
+         */
+        nodes = new HashMap<String, QualityElement>();
+        edges = new HashMap<String, Impact>();
+
+
+        /**
+         * Starts reading in the CSV file
+         */
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
-
-            System.out.println("Did we get to here?");
             String line;
+            int count = 1; //to keep track of the lines
 
+            String[] arr;
             while ((line = br.readLine()) != null) {
                 //TODO: fill this in properly
-                System.out.print(line + "     ");
 
-                //add it to data structure
+                /**
+                 * Will be the first line containing the number of nodes, edges
+                 */
+
+                arr = line.split(",");
+                for (int i = 0; i < arr.length; i++) {
+                    if (arr[i] == null || arr[i].equalsIgnoreCase("null")) {
+                        arr[i] = "0";
+                    }
+                }
+
+                //System.out.print(arr.length + " ");
+                if (count == 1) {
+                    numNodes = Integer.parseInt(arr[0]);
+                    numEdges = Integer.parseInt(arr[1]);
+
+                    System.out.println("NumNodes: " + numNodes);
+                    System.out.println("NumEdges: " + numEdges);
+                } else if (count <= numNodes + 1) {
+                    if (arr.length == 1) {
+                        nodes.put(arr[0], new QualityElement(arr[0]));
+                    } else if (arr.length == 2) {
+                        nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
+                    } else {
+                        System.out.println("Wrong number of parameters for nodes");
+                    }
+
+                } else if (count <= numEdges + 1 && count >= numNodes + 1) {
+                    if (arr.length == 2) {
+                        edges.put(arr[0], new Impact(arr[0], Integer.parseInt(arr[1])));
+                    } else if (arr.length == 3) {
+                        edges.put(arr[0], new Impact(arr[0], Boolean.parseBoolean(arr[1]),
+                                Integer.parseInt(arr[2])));
+                    } else {
+                        System.out.println("Wrong number of parameters for edges");
+                    }
+                }
+
+                //TODO: Take care of inserting edges - requires modification of CSV file
+
+
+
+
+                count++;
             }
 
             br.close();
@@ -54,7 +117,7 @@ public class GraphGenerator {
             e.printStackTrace();
         }
 
-        //return temp;
+
 
     }
 

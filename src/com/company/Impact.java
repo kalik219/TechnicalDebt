@@ -31,6 +31,18 @@ public class Impact {
     }
 
     /**
+     * Overloads the constructor - mainly to accommodate
+     * format of sample CSV file for now
+     * @param desc description of impact
+     * @param w weight
+     */
+    public Impact(String desc, int w) {
+        this.description = desc;
+        this.parity = false;
+        this.weight = w;
+    }
+
+    /**
      * Getter for description
      * @return description
      */
