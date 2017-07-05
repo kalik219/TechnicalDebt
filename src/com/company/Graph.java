@@ -96,15 +96,15 @@ public class Graph {
          * This is to test the reading in of a CSV file
          */
 
-        try {
-            FileReader file = new FileReader("C:/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
-        } catch (IOException x) {
-            x.printStackTrace();
-        }
+//        try {
+//            FileReader file = new FileReader("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
+//        } catch (IOException x) {
+//            x.printStackTrace();
+//        }
 
 
         GraphGenerator sample2 = new
-                GraphGenerator("Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
+                GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
 
     }
 
