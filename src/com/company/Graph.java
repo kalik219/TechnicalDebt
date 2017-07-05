@@ -1,6 +1,7 @@
 package com.company;
 import com.google.common.graph.Network;
 import com.google.common.graph.*;
+import java.io.*;
 
 /**
  * Created by TessaValentien on 6/14/17.
@@ -90,6 +91,20 @@ public class Graph {
 
         System.out.println(Graphs.transitiveClosure(sampleGraph.asGraph()));
 
+
+        /**
+         * This is to test the reading in of a CSV file
+         */
+
+        try {
+            FileReader file = new FileReader("C:/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
+        } catch (IOException x) {
+            x.printStackTrace();
+        }
+
+
+        GraphGenerator sample2 = new
+                GraphGenerator("Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
 
     }
 
