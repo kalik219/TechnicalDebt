@@ -36,6 +36,8 @@ public class Graph {
          * 3. Connect the nodes using the edges
          * 4. Run tests on the graph to see if it's actually
          * the graph you think you made
+         * UPDATE: can likely include info for 3 and 4 on the same line
+         * and execute in the same loop
          */
 
 
