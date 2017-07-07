@@ -19,11 +19,6 @@ public class GraphGenerator {
      * network-graph from it. The idea that it is a graph, but a GraphGenerator
      * Object just takes care of building it.
      */
-
-
-    //TODO: Please note that this code doesn't work yet
-
-
     private MutableNetwork<QualityElement, Impact> graph;
 
     private HashMap<String, QualityElement> nodes;
@@ -122,8 +117,37 @@ public class GraphGenerator {
 
         System.out.println(this.graph);
 
+    }
 
 
+    /**
+     * Similar to the aggregation algorithm for the tree, bases aggregation value
+     * off of the average value of the leaf nodes
+     * @param g graph to perform this on
+     * @return integer representing the aggregation value
+     */
+    public static int aggregateGraph(MutableNetwork<QualityElement, Impact> g) {
+        int aggVal = 0;
+
+        /**
+         * This original algorithm will just use pre-existing traversal methods
+         * to determine which nodes are leaves, and aggregating their multiplicities
+         * because that's the only value available to work with at the moment
+         */
+
+        //TODO: Make this algorithm possible with any graph and not just a GraphGenerator Object
+
+        return aggVal;
+    }
+
+    public int aggregateGG() {
+        int aggVal = 0;
+
+        for (String key: this.nodes.keySet()) {
+//            if (this.nodes.get(key).reachableNodes().isEmpty()) {
+//                aggVal+=
+//            }
+        }
     }
 
 
