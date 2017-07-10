@@ -89,7 +89,7 @@ public class GraphGenerator {
                         System.out.println("Wrong number of parameters for nodes");
                     }
 
-                } else if (count <= numEdges + 1 && count >= numNodes + 1) {
+                } else if (count <= numEdges + numNodes + 1 && count >= numNodes + 1) {
                     /**
                      * This takes care of creating and inserting the edges
                      */
@@ -115,7 +115,7 @@ public class GraphGenerator {
             e.printStackTrace();
         }
 
-        System.out.println(this.graph);
+       //System.out.println(this.graph);
 
     }
 
@@ -164,6 +164,26 @@ public class GraphGenerator {
         }
 
         return aggVal/numLeaves;
+    }
+
+    /**
+     * Just has the hashMap of nodes and edges for now
+     * @return String of nodes and edges WITHOUT connections
+     */
+    public String toString() {
+        String ret = "";
+        ret += "Nodes: \n";
+        for (String key: this.nodes.keySet()) {
+            ret+= this.nodes.get(key).getFactorType() + " \n";
+        }
+
+        ret+= "Edges: \n";
+
+        for (String key: this.edges.keySet()) {
+            ret+= this.edges.get(key).getDesc() + " \n";
+        }
+
+        return ret;
     }
 
 

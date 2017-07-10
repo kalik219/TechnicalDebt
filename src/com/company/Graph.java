@@ -96,6 +96,10 @@ public class Graph {
 
         /**
          * This is to test the reading in of a CSV file
+         *
+         *
+         *
+         *
          */
 
 //        try {
@@ -109,6 +113,8 @@ public class Graph {
                 GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
 
 
+
+        System.out.println(sample2.toString());
         System.out.println(sample2.aggregateGG());
     }
 
