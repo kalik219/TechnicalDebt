@@ -116,6 +116,7 @@ public class Graph {
 
         System.out.println(sample2.toString());
         System.out.println(sample2.aggregateGG());
+        System.out.println(sample2.aggregateIGG());
     }
 
 

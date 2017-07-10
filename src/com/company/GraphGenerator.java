@@ -163,31 +163,57 @@ public class GraphGenerator {
             }
         }
 
+        System.out.println("NumLeaves: " + numLeaves);
         return aggVal/numLeaves;
     }
+
+
+
+    public double aggregateIGG() {
+        double aggVal = 0;
+        int numLeaves = 0;
+
+        for (String key: this.nodes.keySet()) {
+            if (this.graph.inEdges(this.nodes.get(key)).isEmpty()) {
+                numLeaves++;
+                aggVal += this.nodes.get(key).getMultiplicity();
+            }
+        }
+
+        System.out.println("\nNumLeaves2: " + numLeaves);
+        return aggVal/numLeaves;
+    }
+
+
+
 
     /**
      * Just has the hashMap of nodes and edges for now
      * @return String of nodes and edges WITHOUT connections
      */
     public String toString() {
-        String ret = "";
+        String ret = "\nBEGIN PRINTING GRAPH: **********";
         ret += "Nodes: \n";
         for (String key: this.nodes.keySet()) {
             ret+= this.nodes.get(key).getFactorType() + " \n";
         }
 
-        ret+= "Edges: \n";
+        ret+= "\nEdges: \n";
 
         for (String key: this.edges.keySet()) {
             ret+= this.edges.get(key).getDesc() + " \n";
         }
 
+        ret+= "DONE PRINTING GRAPH ********** \n";
+
         return ret;
     }
 
 
-
+    /**
+     * Getter method for the graph
+     * @return the graph
+     */
     public Network<QualityElement, Impact> getGraph() {
         return this.graph;
     }
