@@ -140,14 +140,30 @@ public class GraphGenerator {
         return aggVal;
     }
 
-    public int aggregateGG() {
-        int aggVal = 0;
+    /**
+     * Algorithm #1 - see README
+     * Only for graphGenerator Objects
+     * TODO: Test this code
+     * @return an aggregation value
+     */
+    public double aggregateGG() {
+        double aggVal = 0;
+        int numLeaves = 0;
 
         for (String key: this.nodes.keySet()) {
-//            if (this.nodes.get(key).reachableNodes().isEmpty()) {
-//                aggVal+=
-//            }
+            /**
+             * Goes through the HashMap of nodes to just check to see if it's a leaf
+             * and if it is, add the multiplicity (for convenience) to the aggVal
+             * Logic: it will be a leaf if you can't reach any nodes from it because of
+             * the assumption that the inputted graph is a tree.
+             */
+            if (Graphs.reachableNodes(this.graph.asGraph(), this.nodes.get(key)).isEmpty()) {
+                aggVal+= this.nodes.get(key).getMultiplicity();
+                numLeaves++;
+            }
         }
+
+        return aggVal/numLeaves;
     }
 
 

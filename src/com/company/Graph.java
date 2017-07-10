@@ -108,6 +108,8 @@ public class Graph {
         GraphGenerator sample2 = new
                 GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
 
+
+        System.out.println(sample2.aggregateGG());
     }
 
 
