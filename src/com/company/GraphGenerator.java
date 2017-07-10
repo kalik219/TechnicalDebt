@@ -168,11 +168,22 @@ public class GraphGenerator {
     }
 
 
-
+    /**
+     * Algorithm #2 - see README
+     * Also only for GraphGenerator objects because utilizes the HashMaps
+     * //TODO: Test this code
+     * @return aggregation value
+     */
     public double aggregateIGG() {
         double aggVal = 0;
         int numLeaves = 0;
 
+        /**
+         * Goes through the HashMap of nodes to check if it's a leaf
+         * If it is, add the multiplicity to the aggVal
+         * Logic: if it is a leaf in an inverted tree, there will be no inEdges()
+         * (Nothing pointing to it)
+         */
         for (String key: this.nodes.keySet()) {
             if (this.graph.inEdges(this.nodes.get(key)).isEmpty()) {
                 numLeaves++;
@@ -183,8 +194,6 @@ public class GraphGenerator {
         System.out.println("\nNumLeaves2: " + numLeaves);
         return aggVal/numLeaves;
     }
-
-
 
 
     /**
