@@ -120,27 +120,27 @@ public class GraphGenerator {
     }
 
 
-    /**
-     * Similar to the aggregation algorithm for the tree, bases aggregation value
-     * off of the average value of the leaf nodes
-     * @param g graph to perform this on
-     * @return integer representing the aggregation value
-     */
-    public static int aggregateGraph(MutableNetwork<QualityElement, Impact> g) {
-        int aggVal = 0;
-
-        /**
-         * This original algorithm will just use pre-existing traversal methods
-         * to determine which nodes are leaves, and aggregating their multiplicities
-         * because that's the only value available to work with at the moment
-         */
-
-        //TODO: Make this algorithm possible with any graph and not just a GraphGenerator Object
-
-        
-
-        return aggVal;
-    }
+//    /**
+//     * Similar to the aggregation algorithm for the tree, bases aggregation value
+//     * off of the average value of the leaf nodes
+//     * @param g graph to perform this on
+//     * @return integer representing the aggregation value
+//     */
+//    public static int aggregateGraph(MutableNetwork<QualityElement, Impact> g) {
+//        int aggVal = 0;
+//
+//        /**
+//         * This original algorithm will just use pre-existing traversal methods
+//         * to determine which nodes are leaves, and aggregating their multiplicities
+//         * because that's the only value available to work with at the moment
+//         */
+//
+//        //TODO: Make this algorithm possible with any graph and not just a GraphGenerator Object
+//
+//
+//
+//        return aggVal;
+//    }
 
     /**
      * Algorithm #1 - see README
@@ -199,11 +199,37 @@ public class GraphGenerator {
 
 
     /**
+     * Static method that should work with any Guava network- uses same logic
+     * as aggregateIGG()
+     * @param g graph for this to be performed on since it's static
+     * @return aggregation value
+     */
+    public static double evaluate(MutableNetwork<QualityElement, Impact> g) {
+        /**
+         * Should use the built-in iterator for Graphs (find it) and essentially
+         * do the same thing as the other two algorithms by checking for leaf nodes
+         */
+
+        double aggVal = 0;
+        int numLeaves = 0;
+
+        for (QualityElement qe: g.nodes()) {
+            if (g.inEdges(qe).isEmpty()) {
+                numLeaves++;
+                aggVal += qe.getMultiplicity();
+            }
+        }
+
+        return aggVal/numLeaves;
+    }
+
+
+    /**
      * Just has the hashMap of nodes and edges for now
      * @return String of nodes and edges WITHOUT connections
      */
     public String toString() {
-        String ret = "\nBEGIN PRINTING GRAPH: **********";
+        String ret = "\nBEGIN PRINTING GRAPH: **********\n";
         ret += "Nodes: \n";
         for (String key: this.nodes.keySet()) {
             ret+= this.nodes.get(key).getFactorType() + " \n";

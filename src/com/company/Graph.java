@@ -114,9 +114,15 @@ public class Graph {
 
 
 
-        System.out.println(sample2.toString());
-        System.out.println(sample2.aggregateGG());
-        System.out.println(sample2.aggregateIGG());
+        System.out.println("Sample2 toString: " + sample2.toString());
+        System.out.println("Sample2 aggregateGG(): " + sample2.aggregateGG());
+        System.out.println("Sample2.aggregateIGG(): " + sample2.aggregateIGG());
+        System.out.println();
+
+        System.out.println("This is the static method evaluate: ");
+        double retVal = GraphGenerator.evaluate((MutableNetwork) sample2.getGraph());
+
+        System.out.println(retVal);
     }
 
 
