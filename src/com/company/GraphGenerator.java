@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.*;
 import com.google.common.graph.Network;
 import com.google.common.graph.*;
+import java.util.ArrayList;
 
 import java.util.HashMap;
 
@@ -202,7 +203,7 @@ public class GraphGenerator {
      * Static method that should work with any Guava network- uses same logic
      * as aggregateIGG()
      * @param g graph for this to be performed on since it's static
-     * @return aggregation value
+     * @return aggregation value between 0 and 1 (as percentage)
      */
     public static double evaluate(MutableNetwork<QualityElement, Impact> g) {
         /**
@@ -210,6 +211,7 @@ public class GraphGenerator {
          * do the same thing as the other two algorithms by checking for leaf nodes
          */
 
+        ArrayList<Integer> mults = new ArrayList<Integer>();
         double aggVal = 0;
         int numLeaves = 0;
 
@@ -217,10 +219,14 @@ public class GraphGenerator {
             if (g.inEdges(qe).isEmpty()) {
                 numLeaves++;
                 aggVal += qe.getMultiplicity();
+                mults.add(qe.getMultiplicity());
             }
         }
 
-        return aggVal/numLeaves;
+        System.out.println("This is the mults in this graph: " + mults.toString());
+        double temp =  aggVal/numLeaves;
+
+        return temp/100;
     }
 
 
