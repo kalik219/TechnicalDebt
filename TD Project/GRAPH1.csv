@@ -1,26 +1,46 @@
 "20","25","14","6"
-"OEdge1","NEGATIVE","3","Other"
-"OEdge2","NEGATIVE","2","Other"
-"OEdge3","NEGATIVE","2","Other"
-"OEdge4","NEGATIVE","3","Other"
-"OEdge5","NEGATIVE","2","Other"
-"IEdge1","NEGATIVE","2","Integrity"
-"IEdge2","NEGATIVE","3","Integrity"
-"IEdge3","NEGATIVE","2","Integrity"
-"IEdge4","NEGATIVE","1","Integrity"
-"AEdge1","NEGATIVE","1","Availability"
-"AEdge2","NEGATIVE","1","Availability"
-"AEdge3","NEGATIVE","1","Availability"
-"AEdge4","NEGATIVE","1","Availability"
-"AEdge5","NEGATIVE","1","Availability"
-"AEdge6","NEGATIVE","1","Availability"
-"CEdge1","NEGATIVE","1","Confidentiality"
-"CEdge2","NEGATIVE","1","Confidentiality"
-"CEdge3","NEGATIVE","1","Confidentiality"
-"CEdge4","NEGATIVE","1","Confidentiality"
-"ACEdge","NEGATIVE","1","Access Control"
-"SEdge1","NEGATIVE","0","Security"
-"SEdge2","NEGATIVE","0","Security"
-"SEdge3","NEGATIVE","0","Security"
-"SEdge4","NEGATIVE","0","Security"
-"SEdge5","NEGATIVE","0","Security"
+"OEdge1","FALSE","3","CWE-397","Other"
+"OEdge2","FALSE","2","CWE-570","Other"
+"OEdge3","FALSE","2","CWE-571","Other"
+"OEdge4","FALSE","3","CWE-563","Other"
+"OEdge5","FALSE","2","CWE-681","Other"
+"IEdge1","FALSE","2","CWE-197","Integrity"
+"IEdge2","FALSE","3","CWE-478","Integrity"
+"IEdge3","FALSE","2","CWE-681","Integrity"
+"IEdge4","FALSE","1","CWE-690","Integrity"
+"AEdge1","FALSE","1","CWE-690","Availability"
+"AEdge2","FALSE","1","CWE-459","Availability"
+"AEdge3","FALSE","1","CWE-772","Availability"
+"AEdge4","FALSE","1","CWE-775","Availability"
+"AEdge5","FALSE","1","CWE-476","Availability"
+"AEdge6","FALSE","1","CWE-404","Availability"
+"CEdge1","FALSE","1","CWE-459","Confidentiality"
+"CEdge2","FALSE","1","CWE-476","Confidentiality"
+"CEdge3","FALSE","1","CWE-404","Confidentiality"
+"CEdge4","FALSE","1","CWE-665","Confidentiality"
+"ACEdge","FALSE","1","CWE-665","Access Control"
+"SEdge1","FALSE","0","Other","Security"
+"SEdge2","FALSE","0","Integrity","Security"
+"SEdge3","FALSE","0","Availability","Security"
+"SEdge4","FALSE","0","Access Control","Security"
+"SEdge5","FALSE","0","Confidentiality","Security"
+"CWE-397: Declaration of Throws for Generic Exception","2","OEdge1",
+"CWE-570: Expression is always false","2","OEdge2",
+"CWE-571: Expression is always true","2","OEdge3",
+"CWE-563: Assignment to Variable without use","13","OEdge4",
+"CWE-681: Incorrect Conversion between Numeric Types","25","OEdge5",
+"CWE-197: Numeric Truncation Error","25","IEdge1",
+"CWE-478: Missing Default Case in Switch Statement","1","IEdge2",
+"CWE-690: Unchecked Return Value to NULL Pointer Dereference","27","IEdge4","AEdge1"
+"CWE-459: Incomplete Cleanup","6","AEdge2","CEdge1"
+"CWE-772: Missing Release of Resource after Effective Lifetime","6","AEdge3",
+"CWE-775: Missing Release of File Descriptor or Handle after Effective Lifetime","6","AEdge4",
+"CWE-476: NULL Pointer Dereference","27","AEdge5","CEdge2"
+"CWE-404: Improper Resource Shutdown or Release","6","AEdge6","CEdge3"
+"CWE-665: Improper Initialization","2","CEdge4","ACEdge"
+"Other","NULL","SEdge1",
+"Integrity","NULL","SEdge2",
+"Availability","NULL","SEdge3",
+"Confidentiality","NULL","SEdge4",
+"Access Control","NULL","SEdge5",
+"Security","NULL",,

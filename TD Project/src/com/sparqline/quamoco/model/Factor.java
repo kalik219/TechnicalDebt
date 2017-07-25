@@ -225,7 +225,7 @@ public abstract class Factor extends QMElement {
      */
     public String toString()
     {
-    	String s = " Name: " + getName() + ", Description: " + getDescription() + ", ID: " + identifier + ", Impact: " + getInfluences();
+    	String s = " Name: " + getName() + ", Multiplicity: " + getDescription() + ", ID: " + identifier + ", Impact: " + getInfluences();
     	return s;
     }
 }

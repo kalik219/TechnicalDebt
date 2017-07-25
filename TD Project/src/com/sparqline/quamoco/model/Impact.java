@@ -89,6 +89,11 @@ public class Impact {
      * *added by Kali
      */
     private String			futureTarget;
+    /*
+     * the name of the factor the impact is originating from 
+     * *added by Kali
+     */
+    private String			originName;
 
     public Impact()
     {
@@ -163,12 +168,29 @@ public class Impact {
     /*
      * @param futureTarget
      * 			the futureTarget to set
+     * *added by Kali
      */
     public void setFutureTarget(String futureTarget)
     {
     	this.futureTarget = futureTarget;
     }
-
+    /*
+     * @return the name of the Factor it is originating from 
+     * *added by Kali
+     */
+    public String getOriginName()
+    {
+    	return originName;
+    }
+    /*
+     * @param originName
+     * 			the name of the origin factor to set
+     * *added by Kali
+     */
+    public void setOriginName(String originName)
+    {
+    	this.originName = originName;
+    }
     /**
      * @return the target
      */

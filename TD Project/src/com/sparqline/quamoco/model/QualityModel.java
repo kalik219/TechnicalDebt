@@ -381,7 +381,7 @@ public class QualityModel {
         evaluations.add(eval);
     }
 
-    public void removeEvaluatyion(Evaluation eval)
+    public void removeEvaluation(Evaluation eval)
     {
         if (eval == null || !evaluations.contains(eval))
             return;
