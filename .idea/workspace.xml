@@ -37,8 +37,8 @@
       <file leaf-file-name="GraphGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GraphGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47171825">
-              <caret line="230" column="0" selection-start-line="207" selection-start-column="4" selection-end-line="230" selection-end-column="0" />
+            <state vertical-scroll-proportion="3.1771612">
+              <caret line="210" column="83" selection-start-line="210" selection-start-column="83" selection-end-line="210" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -866,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GraphGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47171825">
-          <caret line="230" column="0" selection-start-line="207" selection-start-column="4" selection-end-line="230" selection-end-column="0" />
+        <state vertical-scroll-proportion="3.1771612">
+          <caret line="210" column="83" selection-start-line="210" selection-start-column="83" selection-end-line="210" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
