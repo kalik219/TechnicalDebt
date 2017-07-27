@@ -1,24 +1,24 @@
 20,25,14,6,
-OEdge1,FALSE,3,CWE-397,Other
-OEdge2,FALSE,2,CWE-570,Other
-OEdge3,FALSE,2,CWE-571,Other
-OEdge4,FALSE,3,CWE-563,Other
-OEdge5,FALSE,2,CWE-681,Other
-IEdge1,FALSE,2,CWE-197,Integrity
-IEdge2,FALSE,3,CWE-478,Integrity
-IEdge3,FALSE,2,CWE-681,Integrity
-IEdge4,FALSE,1,CWE-690,Integrity
-AEdge1,FALSE,1,CWE-690,Availability
-AEdge2,FALSE,1,CWE-459,Availability
-AEdge3,FALSE,1,CWE-772,Availability
-AEdge4,FALSE,1,CWE-775,Availability
-AEdge5,FALSE,1,CWE-476,Availability
-AEdge6,FALSE,1,CWE-404,Availability
-CEdge1,FALSE,1,CWE-459,Confidentiality
-CEdge2,FALSE,1,CWE-476,Confidentiality
-CEdge3,FALSE,1,CWE-404,Confidentiality
-CEdge4,FALSE,1,CWE-665,Confidentiality
-ACEdge,FALSE,1,CWE-665,Access Control
+OEdge1,FALSE,3,CWE-397: Declaration of Throws for Generic Exception,Other
+OEdge2,FALSE,2,CWE-570: Expression is always false,Other
+OEdge3,FALSE,2,CWE-571: Expression is always true,Other
+OEdge4,FALSE,3,CWE-563: Assignment to Variable without use,Other
+OEdge5,FALSE,2,CWE-681: Incorrect Conversion between Numeric Types,Other
+IEdge1,FALSE,2,CWE-197: Numeric Truncation Error,Integrity
+IEdge2,FALSE,3,CWE-478: Missing Default Case in Switch Statement,Integrity
+IEdge3,FALSE,2,CWE-681: Incorrect Conversion between Numeric Types,Integrity
+IEdge4,FALSE,1,CWE-690: Unchecked Return Value to NULL Pointer Dereference,Integrity
+AEdge1,FALSE,1,CWE-690: Unchecked Return Value to NULL Pointer Dereference,Availability
+AEdge2,FALSE,1,CWE-459: Incomplete Cleanup,Availability
+AEdge3,FALSE,1,CWE-772: Missing Release of Resource after Effective Lifetime,Availability
+AEdge4,FALSE,1,CWE-775: Missing Release of File Descriptor or Handle after Effective Lifetime,Availability
+AEdge5,FALSE,1,CWE-476: NULL Pointer Dereference,Availability
+AEdge6,FALSE,1,CWE-404: Improper Resource Shutdown or Release,Availability
+CEdge1,FALSE,1,CWE-459: Incomplete Cleanup,Confidentiality
+CEdge2,FALSE,1,CWE-476: NULL Pointer Dereference,Confidentiality
+CEdge3,FALSE,1,CWE-404: Improper Resource Shutdown or Release,Confidentiality
+CEdge4,FALSE,1,CWE-665: Improper Initialization,Confidentiality
+ACEdge,FALSE,1,CWE-665: Improper Initialization,Access Control
 SEdge1,FALSE,0,Other,Security
 SEdge2,FALSE,0,Integrity,Security
 SEdge3,FALSE,0,Availability,Security
