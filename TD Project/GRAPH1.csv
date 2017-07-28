@@ -1,0 +1,46 @@
+"20","25","14","6"
+"OEdge1","FALSE","3","CWE-397: Declaration of Throws for Generic Exception","Other"
+"OEdge2","FALSE","2","CWE-570: Expression is always false","Other"
+"OEdge3","FALSE","2","CWE-571: Expression is always true","Other"
+"OEdge4","FALSE","3","CWE-563: Assignment to Variable without use","Other"
+"OEdge5","FALSE","2","CWE-681: Incorrect Conversion between Numeric Types","Other"
+"IEdge1","FALSE","2","CWE-197: Numeric Truncation Error","Integrity"
+"IEdge2","FALSE","3","CWE-478: Missing Default Case in Switch Statement","Integrity"
+"IEdge3","FALSE","2","CWE-681: Incorrect Conversion between Numeric Types","Integrity"
+"IEdge4","FALSE","1","CWE-690: Unchecked Return Value to NULL Pointer Dereference","Integrity"
+"AEdge1","FALSE","1","CWE-690: Unchecked Return Value to NULL Pointer Dereference","Availability"
+"AEdge2","FALSE","1","CWE-459: Incomplete Cleanup","Availability"
+"AEdge3","FALSE","1","CWE-772: Missing Release of Resource after Effective Lifetime","Availability"
+"AEdge4","FALSE","1","CWE-775: Missing Release of File Descriptor or Handle after Effective Lifetime","Availability"
+"AEdge5","FALSE","1","CWE-476: NULL Pointer Dereference","Availability"
+"AEdge6","FALSE","1","CWE-404: Improper Resource Shutdown or Release","Availability"
+"CEdge1","FALSE","1","CWE-459: Incomplete Cleanup","Confidentiality"
+"CEdge2","FALSE","1","CWE-476: NULL Pointer Dereference","Confidentiality"
+"CEdge3","FALSE","1","CWE-404: Improper Resource Shutdown or Release","Confidentiality"
+"CEdge4","FALSE","1","CWE-665: Improper Initialization","Confidentiality"
+"ACEdge","FALSE","1","CWE-665: Improper Initialization","Access Control"
+"SEdge1","FALSE","0","Other","Security"
+"SEdge2","FALSE","0","Integrity","Security"
+"SEdge3","FALSE","0","Availability","Security"
+"SEdge4","FALSE","0","Access Control","Security"
+"SEdge5","FALSE","0","Confidentiality","Security"
+"CWE-397: Declaration of Throws for Generic Exception","2","OEdge1",
+"CWE-570: Expression is always false","2","OEdge2",
+"CWE-571: Expression is always true","2","OEdge3",
+"CWE-563: Assignment to Variable without use","13","OEdge4",
+"CWE-681: Incorrect Conversion between Numeric Types","25","OEdge5",
+"CWE-197: Numeric Truncation Error","25","IEdge1",
+"CWE-478: Missing Default Case in Switch Statement","1","IEdge2",
+"CWE-690: Unchecked Return Value to NULL Pointer Dereference","27","IEdge4","AEdge1"
+"CWE-459: Incomplete Cleanup","6","AEdge2","CEdge1"
+"CWE-772: Missing Release of Resource after Effective Lifetime","6","AEdge3",
+"CWE-775: Missing Release of File Descriptor or Handle after Effective Lifetime","6","AEdge4",
+"CWE-476: NULL Pointer Dereference","27","AEdge5","CEdge2"
+"CWE-404: Improper Resource Shutdown or Release","6","AEdge6","CEdge3"
+"CWE-665: Improper Initialization","2","CEdge4","ACEdge"
+"Other","NULL","SEdge1",
+"Integrity","NULL","SEdge2",
+"Availability","NULL","SEdge3",
+"Confidentiality","NULL","SEdge4",
+"Access Control","NULL","SEdge5",
+"Security","NULL",,
