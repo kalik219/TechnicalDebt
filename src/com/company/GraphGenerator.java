@@ -1,6 +1,5 @@
 package com.company;
 import java.io.BufferedReader;
-//import java.util.*;
 import java.io.FileReader;
 import java.io.*;
 import com.google.common.graph.Network;
@@ -129,87 +128,13 @@ public class GraphGenerator {
                    } else {
                        nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
                    }
-
                 }
                 count++;
             }
-
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-//        /**
-//         * Starts reading in the CSV file
-//         */
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader(fileName));
-//            String line;
-//            int count = 1; //to keep track of the lines
-//
-//            String[] arr;
-//            while ((line = br.readLine()) != null) {
-//
-//                /**
-//                 * Will be the first line containing the number of nodes, edges
-//                 */
-//
-//                arr = line.split(",");
-//                for (int i = 0; i < arr.length; i++) {
-//                    if (arr[i] == null || arr[i].equalsIgnoreCase("null")) {
-//                        arr[i] = "0";
-//                    }
-//                }
-//                if (count == 1) {
-//                    numNodes = Integer.parseInt(arr[0]);
-//                    numEdges = Integer.parseInt(arr[1]);
-//
-//                    System.out.println("NumNodes: " + numNodes);
-//                    System.out.println("NumEdges: " + numEdges);
-//
-//                } else if (count <= numNodes + 1) {
-//                    /**
-//                     * Takes care of creating and saving the nodes in a hashMap
-//                     */
-//                    if (arr.length == 1) {
-//                        nodes.put(arr[0], new QualityElement(arr[0]));
-//                    } else if (arr.length == 2) {
-//                        nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
-//                    } else {
-//                        System.out.println("Wrong number of parameters for nodes");
-//                    }
-//
-//                } else if (count <= numEdges + numNodes + 1 && count >= numNodes + 1) {
-//                    /**
-//                     * This takes care of creating and inserting the edges
-//                     */
-//                    if (arr.length == 4) {
-                        //if it doesn't have boolean impact
-//                        edges.put(arr[0], new Impact(arr[0], Integer.parseInt(arr[1])));
-//                        graph.addEdge(nodes.get(arr[2]), nodes.get(arr[3]), edges.get(arr[0]));
-//                    } else if (arr.length == 5) {
-                        //if it does have boolean impact
-//                        edges.put(arr[0], new Impact(arr[0], Boolean.parseBoolean(arr[1]),
-//                                Integer.parseInt(arr[2])));
-//                        graph.addEdge(nodes.get(arr[3]), nodes.get(arr[4]), edges.get(arr[0]));
-//                    } else {
-//                        System.out.println("Wrong number of parameters for edges");
-//                    }
-//                } else if (count >= numEdges + numNodes + 1) {
-//                    System.out.println("ERROR: Wrong number of inputs");
-//                }
-//
-//                count++;
-//            }
-//
-//            br.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-       //System.out.println(this.graph);
-
     }
 
 
@@ -217,7 +142,6 @@ public class GraphGenerator {
     /**
      * Algorithm #1 - see README
      * Only for graphGenerator Objects
-     * TODO: Test this code
      * @return an aggregation value
      */
     public double aggregateGG() {
@@ -236,7 +160,6 @@ public class GraphGenerator {
                 numLeaves++;
             }
         }
-
         System.out.println("NumLeaves: " + numLeaves);
         return aggVal/numLeaves;
     }
@@ -264,8 +187,6 @@ public class GraphGenerator {
                 aggVal += this.nodes.get(key).getMultiplicity();
             }
         }
-
-        System.out.println("\nNumLeaves2: " + numLeaves);
         return aggVal/numLeaves;
     }
 
@@ -286,19 +207,15 @@ public class GraphGenerator {
         double aggVal = 0;
         int numLeaves = 0;
 
-        //System.out.println("About to print out numLeaves during aggregation");
         int count = 0;
         for (QualityElement qe: g.nodes()) {
             if (g.inEdges(qe).isEmpty()) {
-               // System.out.println(qe.toString());
                 numLeaves++;
                 aggVal += qe.getMultiplicity();
                 mults.add(qe.getMultiplicity());
             }
             count ++;
         }
-
-       // System.out.println ("how many nodes there are: " + count);
         System.out.println("This is the mults in this graph: " + mults.toString());
         System.out.println("This is the number of leaves:  " + numLeaves);
         double temp =  aggVal/numLeaves;
