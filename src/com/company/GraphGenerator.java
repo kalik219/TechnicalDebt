@@ -31,7 +31,6 @@ public class GraphGenerator {
     private int numEdges;
 
 
-
     public GraphGenerator(String fileName) {
 
         /**
@@ -50,64 +49,88 @@ public class GraphGenerator {
         edges = new HashMap<String, Impact>();
 
 
+
         /**
-         * Starts reading in the CSV file
+         * Starts reading in the CSV file #2 WITH NEW FORMAT OF THE FILE
          */
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             String line;
             int count = 1; //to keep track of the lines
 
+
             String[] arr;
             while ((line = br.readLine()) != null) {
 
-                /**
-                 * Will be the first line containing the number of nodes, edges
-                 */
-
                 arr = line.split(",");
+
+                /**
+                 * Makes sure nothing is read in as null
+                 */
                 for (int i = 0; i < arr.length; i++) {
                     if (arr[i] == null || arr[i].equalsIgnoreCase("null")) {
                         arr[i] = "0";
                     }
                 }
+
+                /**
+                 * Will be the first line containing the number of nodes, edges
+                 */
                 if (count == 1) {
                     numNodes = Integer.parseInt(arr[0]);
                     numEdges = Integer.parseInt(arr[1]);
 
+
+                    //can ignore the other two values if they are there- does not apply here
                     System.out.println("NumNodes: " + numNodes);
                     System.out.println("NumEdges: " + numEdges);
 
-                } else if (count <= numNodes + 1) {
-                    /**
-                     *
-                     */
-                    if (arr.length == 1) {
-                        nodes.put(arr[0], new QualityElement(arr[0]));
-                    } else if (arr.length == 2) {
-                        nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
-                    } else {
-                        System.out.println("Wrong number of parameters for nodes");
-                    }
-
-                } else if (count <= numEdges + numNodes + 1 && count >= numNodes + 1) {
+                } else if (count <= numEdges + 1) {
                     /**
                      * This takes care of creating and inserting the edges
                      */
                     if (arr.length == 4) {
+                        //if it doesn't have boolean impact
                         edges.put(arr[0], new Impact(arr[0], Integer.parseInt(arr[1])));
+
+                        if (!nodes.containsKey(arr[2])) {
+                            nodes.put(arr[2], new QualityElement(arr[2]));
+                        }
+                        if (!nodes.containsKey(arr[3])) {
+                            nodes.put(arr[3], new QualityElement(arr[3]));
+                        }
+
                         graph.addEdge(nodes.get(arr[2]), nodes.get(arr[3]), edges.get(arr[0]));
                     } else if (arr.length == 5) {
+                        //if it does have boolean impact
                         edges.put(arr[0], new Impact(arr[0], Boolean.parseBoolean(arr[1]),
                                 Integer.parseInt(arr[2])));
+
+                        if (!nodes.containsKey(arr[3])) {
+                            nodes.put(arr[3], new QualityElement(arr[3]));
+                        }
+                        if (!nodes.containsKey(arr[4])) {
+                            nodes.put(arr[4], new QualityElement(arr[4]));
+                        }
+
                         graph.addEdge(nodes.get(arr[3]), nodes.get(arr[4]), edges.get(arr[0]));
                     } else {
                         System.out.println("Wrong number of parameters for edges");
                     }
-                } else if (count >= numEdges + numNodes + 1) {
-                    System.out.println("ERROR: Wrong number of inputs");
-                }
 
+                } else if (count <= numEdges + numNodes + 1 && count >= numEdges + 1) {
+
+                    /**
+                     * Creates and saves uncreated Nodes, and updates the information of those
+                     * created for the edges above.
+                     */
+                   if (nodes.get(arr[0]) != null /*!nodes.containsKey(arr[0])*/) {
+                       nodes.get(arr[0]).setMultiplicity(Integer.parseInt(arr[1]));
+                   } else {
+                       nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
+                   }
+
+                }
                 count++;
             }
 
@@ -116,32 +139,80 @@ public class GraphGenerator {
             e.printStackTrace();
         }
 
+
+//        /**
+//         * Starts reading in the CSV file
+//         */
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader(fileName));
+//            String line;
+//            int count = 1; //to keep track of the lines
+//
+//            String[] arr;
+//            while ((line = br.readLine()) != null) {
+//
+//                /**
+//                 * Will be the first line containing the number of nodes, edges
+//                 */
+//
+//                arr = line.split(",");
+//                for (int i = 0; i < arr.length; i++) {
+//                    if (arr[i] == null || arr[i].equalsIgnoreCase("null")) {
+//                        arr[i] = "0";
+//                    }
+//                }
+//                if (count == 1) {
+//                    numNodes = Integer.parseInt(arr[0]);
+//                    numEdges = Integer.parseInt(arr[1]);
+//
+//                    System.out.println("NumNodes: " + numNodes);
+//                    System.out.println("NumEdges: " + numEdges);
+//
+//                } else if (count <= numNodes + 1) {
+//                    /**
+//                     * Takes care of creating and saving the nodes in a hashMap
+//                     */
+//                    if (arr.length == 1) {
+//                        nodes.put(arr[0], new QualityElement(arr[0]));
+//                    } else if (arr.length == 2) {
+//                        nodes.put(arr[0], new QualityElement(arr[0], Integer.parseInt(arr[1])));
+//                    } else {
+//                        System.out.println("Wrong number of parameters for nodes");
+//                    }
+//
+//                } else if (count <= numEdges + numNodes + 1 && count >= numNodes + 1) {
+//                    /**
+//                     * This takes care of creating and inserting the edges
+//                     */
+//                    if (arr.length == 4) {
+                        //if it doesn't have boolean impact
+//                        edges.put(arr[0], new Impact(arr[0], Integer.parseInt(arr[1])));
+//                        graph.addEdge(nodes.get(arr[2]), nodes.get(arr[3]), edges.get(arr[0]));
+//                    } else if (arr.length == 5) {
+                        //if it does have boolean impact
+//                        edges.put(arr[0], new Impact(arr[0], Boolean.parseBoolean(arr[1]),
+//                                Integer.parseInt(arr[2])));
+//                        graph.addEdge(nodes.get(arr[3]), nodes.get(arr[4]), edges.get(arr[0]));
+//                    } else {
+//                        System.out.println("Wrong number of parameters for edges");
+//                    }
+//                } else if (count >= numEdges + numNodes + 1) {
+//                    System.out.println("ERROR: Wrong number of inputs");
+//                }
+//
+//                count++;
+//            }
+//
+//            br.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
        //System.out.println(this.graph);
 
     }
 
 
-//    /**
-//     * Similar to the aggregation algorithm for the tree, bases aggregation value
-//     * off of the average value of the leaf nodes
-//     * @param g graph to perform this on
-//     * @return integer representing the aggregation value
-//     */
-//    public static int aggregateGraph(MutableNetwork<QualityElement, Impact> g) {
-//        int aggVal = 0;
-//
-//        /**
-//         * This original algorithm will just use pre-existing traversal methods
-//         * to determine which nodes are leaves, and aggregating their multiplicities
-//         * because that's the only value available to work with at the moment
-//         */
-//
-//        //TODO: Make this algorithm possible with any graph and not just a GraphGenerator Object
-//
-//
-//
-//        return aggVal;
-//    }
 
     /**
      * Algorithm #1 - see README
@@ -215,20 +286,35 @@ public class GraphGenerator {
         double aggVal = 0;
         int numLeaves = 0;
 
+        //System.out.println("About to print out numLeaves during aggregation");
+        int count = 0;
         for (QualityElement qe: g.nodes()) {
             if (g.inEdges(qe).isEmpty()) {
+               // System.out.println(qe.toString());
                 numLeaves++;
                 aggVal += qe.getMultiplicity();
                 mults.add(qe.getMultiplicity());
             }
+            count ++;
         }
 
+       // System.out.println ("how many nodes there are: " + count);
         System.out.println("This is the mults in this graph: " + mults.toString());
+        System.out.println("This is the number of leaves:  " + numLeaves);
         double temp =  aggVal/numLeaves;
 
         return temp/100;
     }
 
+
+    public HashMap<String, QualityElement> getNodes() {
+        return this.nodes;
+    }
+
+
+    public HashMap<String, Impact> getEdges() {
+        return this.edges;
+    }
 
     /**
      * Just has the hashMap of nodes and edges for now

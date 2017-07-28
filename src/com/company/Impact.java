@@ -90,4 +90,10 @@ public class Impact {
         this.weight = toSet;
     }
 
+
+    public String toString() {
+        return this.description;
+    }
+
+
 }

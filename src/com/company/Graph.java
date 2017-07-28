@@ -94,13 +94,6 @@ public class Graph {
         System.out.println(Graphs.transitiveClosure(sampleGraph.asGraph()));
 
 
-        /**
-         * This is to test the reading in of a CSV file
-         *
-         *
-         *
-         *
-         */
 
 //        try {
 //            FileReader file = new FileReader("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
@@ -109,18 +102,59 @@ public class Graph {
 //        }
 
 
-        GraphGenerator sample2 = new
-                GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
+//        GraphGenerator sample2 = new
+//                GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/sampleCSV.csv");
+
+        System.out.println("\n\n\nThis is starting with GRAPH1.csv");
+
+        GraphGenerator sample3 = new
+                GraphGenerator("/Users/TessaValentien/Documents/MSU_TechnicalDebt_REU/GRAPH1.csv");
+
+//        System.out.println("Sample2 toString: " + sample2.toString());
+//        System.out.println("Sample2 aggregateGG(): " + sample2.aggregateGG());
+//        System.out.println("Sample2.aggregateIGG(): " + sample2.aggregateIGG());
+//        System.out.println();
+
+//        System.out.println("This is the static method evaluate: ");
+//        double retVal = GraphGenerator.evaluate((MutableNetwork) sample2.getGraph());
+
+//        System.out.println(retVal);
 
 
 
-        System.out.println("Sample2 toString: " + sample2.toString());
-        System.out.println("Sample2 aggregateGG(): " + sample2.aggregateGG());
-        System.out.println("Sample2.aggregateIGG(): " + sample2.aggregateIGG());
-        System.out.println();
+        double retVal = GraphGenerator.evaluate((MutableNetwork) sample3.getGraph());
 
-        System.out.println("This is the static method evaluate: ");
-        double retVal = GraphGenerator.evaluate((MutableNetwork) sample2.getGraph());
+        System.out.println("RetVal: " + retVal);
+
+        System.out.println("Sample2 aggregateGG(): " + sample3.aggregateGG());
+        System.out.println("Sample2.aggregateIGG(): " + sample3.aggregateIGG());
+
+
+//        /**
+//         * Prints the nodes from the keyset
+//         */
+//        int nodeCount = 0;
+//        for (String k : sample3.getNodes().keySet()) {
+//            System.out.println(sample3.getNodes().get(k).toString() + " " + nodeCount);
+//            nodeCount++;
+//        }
+//
+//        System.out.println("Testing nodeCount: " + nodeCount);
+
+        System.out.println("From asGraph(): " + sample3.getGraph().nodes().size());
+
+
+
+//        System.out.println();
+//
+//        int edgeCount = 1;
+//        for (String k : sample3.getEdges().keySet()) {
+//            System.out.println(sample3.getEdges().get(k).toString() + " " + edgeCount);
+//            edgeCount++;
+//        }
+
+        System.out.println(sample3.getGraph());
+
 
         System.out.println(retVal);
     }
