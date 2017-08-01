@@ -16,20 +16,22 @@ Instructions:
 A CSV file (GRAPH.csv) containing info gathered from the Parasoft static analysis test and CWE.mitre.org will be read in when you run QMTest.java.
 
 FORMAT OF CSV FILE: 
-The first line will contain 1) the number of factors, 2) the number of impacts, 3) the number of product factors, and 4) the number of quality aspects.
-The impacts will then be listed - each on its own line - in the following format: Name of Impact (ex. OEdge1), Effect of Impact (FALSE for negative, TRUE for positive), Severity of Impact (ex. 3), Name of Factor the impact is assigned to (ex. CWE-397…), Name of the Factor that is the impact’s target (ex. Integrity) 
-Next, the product factors are listed - each on its own line - in the following format: Name of Product Factor (ex. CWE-397…), Multiplicity of Product Factor (ex. 25), Name of FIRST Impact assigned to the Product Factor (ex. OEdge1), Name of SECOND Impact assigned to the Product Factor IF APPLIES (ex. OEdge2)
-The quality aspects are then listed - each on its own line - in the same format as the product factors.
+- The first line will contain 1) the number of factors, 2) the number of impacts, 3) the number of product factors, and 4) the number of quality aspects.
+- The impacts will then be listed - each on its own line - in the following format: Name of Impact (ex. OEdge1), Effect of Impact (FALSE for negative, TRUE for positive), Severity of Impact (ex. 3), Name of Factor the impact is assigned to (ex. CWE-397…), Name of the Factor that is the impact’s target (ex. Integrity) 
+- Next, the product factors are listed - each on its own line - in the following format: Name of Product Factor (ex. CWE-397…), Multiplicity of Product Factor (ex. 25), Name of FIRST Impact assigned to the Product Factor (ex. OEdge1), Name of SECOND Impact assigned to the Product Factor IF APPLIES (ex. OEdge2)
+- The quality aspects are then listed - each on its own line - in the same format as the product factors.
 
 [NOTE: Parasoft was used to gather the following information - multiplicity of each Factor, CWE names (Product Factors), & severity of vulnerability. CWE.mitre.org was used to gather the following information - names of Quality Aspects. Each Impact’s positive/negative effect was inferred from this information]
 
 As the CSV file is read into QMTest.java, the Quamoco Quality Meta-Model Extension is populated. QMTest.java then exports another CSV file called GRAPH1.csv for GraphGenerator.java to read in.
 
-The CSV file outputted by QMTest will be in the format required by GraphGenerator.java. 
+The CSV file outputted by QMTest will be in the format required by GraphGenerator.java. Please note that the multiplicities contained in this graph tentatively have a cap at 100 until a more accurate method of returning a value between 0 and 1 is created. 
 
 Save GRAPH1 somewhere and copy the file path as a string into the constructor of the GraphGenerator object called “sample” in the main class, Graph.java. 
 
 Now, you can run Graph.java and it will output information about the graph and the various aggregation values you can get with it. There are other public methods in GraphGenerator.java, QualityElement.java, and Impact.java that will allow for printing out properties of the graph created. 
+
+There are several public aggregation methods in GraphGenerator.java which can be called on the “sample” object. Note that these methods work only with the multiplicities associated with the product factors; the severities which are associated with the edge objects have not yet been taken into account for the aggregation. 
 
 
 
