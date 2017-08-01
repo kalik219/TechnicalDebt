@@ -13,7 +13,7 @@ The program “runs” in two separate parts. The first part adds security vulne
 
 Instructions: 
 
-A CSV file (GRAPH.csv) containing info gathered from the Parasoft static analysis test and CWE.mitre.org will be read in when you run QMTest.java.
+A CSV file (GRAPH.csv) containing info gathered from the Parasoft static analysis test and CWE.mitre.org will be read in when you run QMTest.java (located in TD Project folder).
 
 FORMAT OF CSV FILE: 
 - The first line will contain 1) the number of factors, 2) the number of impacts, 3) the number of product factors, and 4) the number of quality aspects.
